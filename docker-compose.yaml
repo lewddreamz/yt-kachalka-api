@@ -2,11 +2,17 @@ version: '3.8'
 
 services:
   api:
-    build: ./docker/api
+    build: 
+      context: ./docker/api
+      dockerfile: Dockerfile
     container_name: php-app
     restart: unless-stopped
     volumes:
-      - ./:/var/www/html
+  # Монтируем только код (исключаем var)
+      - ./:/var/www/html/:exclude=var
+      # Или если exclude не поддерживается вашей версией, монтируйте только нужные файлы
+      # Отдельно создаем volume для данных Symfony (кэш и логи)
+      - ./var:/var/www/html/var
     networks:
       - api-network
 
