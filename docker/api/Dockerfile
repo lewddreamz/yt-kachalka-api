@@ -21,6 +21,10 @@ RUN setfacl -R -m u:"$HTTPDUSER":rwX -m u:$(whoami):rwX var
 RUN chown www-data:www-data -R var/cache/ var/log/
 # Открываем порт 9000 (для FPM)
 EXPOSE 9000
+#entrypoint
+COPY docker-entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 # Запускаем PHP-FPM
 CMD ["php-fpm"]
