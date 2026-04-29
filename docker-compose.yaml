@@ -2,11 +2,12 @@ version: '3.8'
 
 services:
   api:
-    build: ./docker/api
+
+    build: 
+      context: ./
+      dockerfile: ./docker/api/Dockerfile
     container_name: php-app
     restart: unless-stopped
-    volumes:
-      - ./:/var/www/html
     networks:
       - api-network
 
