@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Controllers;
+namespace App\Presentation\Controllers;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
