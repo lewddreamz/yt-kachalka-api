@@ -7,6 +7,12 @@ services:
       dockerfile: ./docker/api/Dockerfile
     container_name: php-app
     restart: unless-stopped
+    environment:
+      APP_SECRET: ${APP_SECRET:-change-me}
+      YOUTUBE_API_KEY: ${YOUTUBE_API_KEY:-}
+    volumes:
+      - ./src:/var/www/html/src
+      - ./vendor:/var/www/html/vendor
     networks:
       - api-network
 

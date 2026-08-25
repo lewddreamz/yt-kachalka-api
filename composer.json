@@ -4,7 +4,8 @@
         "api-platform/api-pack": "^1.4",
         "symfony/yaml": "^8.0",
         "symfony/translation": "^8.0",
-        "norkunas/youtube-dl-php": "dev-master"
+        "norkunas/youtube-dl-php": "dev-master",
+        "google/apiclient": "*"
     },
 
     "autoload": {

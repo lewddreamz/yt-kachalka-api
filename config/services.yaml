@@ -4,7 +4,13 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
+
 services:
+    App\Domain\Search\Service\SearchServiceInterface: '@App\Application\Search\Service\SearchService'
+
+    App\Infrastructure\Search\Client\YoutubeDataApiClient:
+        arguments:
+            $apiKey: '%env(YOUTUBE_API_KEY)%'
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
